@@ -19,6 +19,10 @@ export class TaskService {
     return this.http.get<Task[]>(API_URL);
   };
 
+  addTask = (task: Task): Observable<Task> => {
+    return this.http.post<Task>(API_URL, task, httpOptions);
+  };
+
   deleteTask = ({ id }: Task): Observable<Task> => {
     const url = `${API_URL}/${id}`;
 
